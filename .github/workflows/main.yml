@@ -10,6 +10,6 @@ jobs:
         source_repository: registry.opentext.com/otds-server:24.4.0
         source_username: ${{ secrets.OT_USERNAME }}
         source_password: ${{ secrets.OT_PASSWORD }}
-        target_repository: /otds-server:24.4.0
+        target_repository: ghcr.io/hello-world/otds-server:24.4.0
         target_username: ${{ secrets.GHCR_USERNAME }}
         target_password: ${{ secrets.GHCR_PASSWORD }}
