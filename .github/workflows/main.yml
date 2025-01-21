@@ -4,12 +4,12 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-    - name: Sync From OT Repository to GHCR Repo
+    - name: Sync From OT  Repository to GHCR Repo
       uses: onichandame/docker-registry-sync-action@master
       with:
         source_repository: registry.opentext.com/otds-server:24.4.0
         source_username: ${{ secrets.OTR_USERNAME }}
         source_password: ${{ secrets.OTR_PASSWORD }}
-        target_repository: ghcr.io/ChemaEsteve/otds-server:24.4.0
+        target_repository: ghcr.io/chemaesteve/otds-server:24.4.0
         target_username: ${{ secrets.GHCR_USERNAME }}
         target_password: ${{ secrets.GHCR_PASSWORD }}
