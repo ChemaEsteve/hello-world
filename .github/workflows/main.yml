@@ -7,9 +7,18 @@ jobs:
     - name: Sync From OT  Repository to GHCR Repo
       uses: onichandame/docker-registry-sync-action@master
       with:
-        source_repository: registry.opentext.com/otds-server:24.4.0
+        source_repository: registry.opentext.com/exstream-empower:24.4.0.23991
         source_username: ${{ secrets.OTR_USERNAME }}
         source_password: ${{ secrets.OTR_PASSWORD }}
-        target_repository: ghcr.io/chemaesteve/otds-server:24.4.0
+        target_repository: ghcr.io/chemaesteve/exstream-empower:24.4.0.23991
+        target_username: ${{ secrets.GHCR_USERNAME }}
+        target_password: ${{ secrets.GHCR_PASSWORD }}
+    - name: Sync From OT  Repository to GHCR Repo
+      uses: onichandame/docker-registry-sync-action@master
+      with:
+        source_repository: registry.opentext.com/exstream-docgen:24.4.0.4680
+        source_username: ${{ secrets.OTR_USERNAME }}
+        source_password: ${{ secrets.OTR_PASSWORD }}
+        target_repository: ghcr.io/chemaesteve/exstream-docgen:24.4.0.4680
         target_username: ${{ secrets.GHCR_USERNAME }}
         target_password: ${{ secrets.GHCR_PASSWORD }}
