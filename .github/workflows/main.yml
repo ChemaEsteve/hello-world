@@ -13,9 +13,9 @@ jobs:
     - name: Sync From OT  Repository to GHCR Repo
       uses: onichandame/docker-registry-sync-action@master
       with:
-        source_repository: ${{env.REPO_ORI}}/${{LISTA}}
+        source_repository: ${{env.REPO_ORI}}/${{matrix.LISTA}}
         source_username: ${{ secrets.OTR_USERNAME }}
         source_password: ${{ secrets.OTR_PASSWORD }}
-        target_repository: ${{env.REPO_DEST}}/${{LISTA}}
+        target_repository: ${{env.REPO_DEST}}/${{matrix.LISTA}}
         target_username: ${{ secrets.GHCR_USERNAME }}
         target_password: ${{ secrets.GHCR_PASSWORD }}
