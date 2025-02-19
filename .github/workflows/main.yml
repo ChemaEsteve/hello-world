@@ -7,7 +7,7 @@ jobs:
   build:
     strategy:
       matrix:
-        LISTA: [exstream-docgen:24.4.0.4686,exstream-design:24.4.0.24361]
+        LISTA: ["exstream-docgen:24.4.0.4686","exstream-design:24.4.0.24361"]
     runs-on: ubuntu-latest
     steps:
     - name: Sync From OT  Repository to GHCR Repo
