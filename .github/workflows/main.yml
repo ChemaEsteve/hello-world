@@ -1,17 +1,13 @@
 name: Sync Registry
 on: [push]
-env:
-  REPO_ORI: registry.opentext.com
-  REPO_DEST: ghcr.io/chemaesteve
 jobs:
-  build:
+  OT:
+    env:
+      REPO_ORI: registry.opentext.com
+      REPO_DEST: ghcr.io/chemaesteve
     strategy:
       matrix:
-        LISTA: ["exstream-docgen:24.4.0.4686",
-        "exstream-design:24.4.0.24361",
-        "exstream-orchestration:24.4.0.6369",
-        "exstream-eep-service:24.4.0.1525",
-        "exstream-rationalization:24.4.0.2269"]
+        LISTA: []
     runs-on: ubuntu-latest
     steps:
     - name: Sync From OT  Repository to GHCR Repo
@@ -20,6 +16,23 @@ jobs:
         source_repository: ${{env.REPO_ORI}}/${{matrix.LISTA}}
         source_username: ${{ secrets.OTR_USERNAME }}
         source_password: ${{ secrets.OTR_PASSWORD }}
+        target_repository: ${{env.REPO_DEST}}/${{matrix.LISTA}}
+        target_username: ${{ secrets.GHCR_USERNAME }}
+        target_password: ${{ secrets.GHCR_PASSWORD }}
+  Solar:
+    env:
+      REPO_ORI: docker.io/bitnami
+      REPO_DEST: ghcr.io/chemaesteve
+    strategy:
+      matrix:
+        LISTA: ["solr:9.8.0-debian-12-r1",
+        "zookeeper:3.9.3-debian-12-r3"]
+    runs-on: ubuntu-latest
+    steps:
+    - name: Sync From Solar  Repository to GHCR Repo
+      uses: onichandame/docker-registry-sync-action@master
+      with:
+        source_repository: ${{env.REPO_ORI}}/${{matrix.LISTA}}
         target_repository: ${{env.REPO_DEST}}/${{matrix.LISTA}}
         target_username: ${{ secrets.GHCR_USERNAME }}
         target_password: ${{ secrets.GHCR_PASSWORD }}
