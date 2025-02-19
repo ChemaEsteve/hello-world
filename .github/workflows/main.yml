@@ -14,6 +14,6 @@ jobs:
         source_repository: ${{env.REPO_ORI}}/${{env.LISTA}}
         source_username: ${{ secrets.OTR_USERNAME }}
         source_password: ${{ secrets.OTR_PASSWORD }}
-        target_repository: ${{env.REPO_DEST}}/${{env.LISTA}}}
+        target_repository: ${{env.REPO_DEST}}/${{env.LISTA}}
         target_username: ${{ secrets.GHCR_USERNAME }}
         target_password: ${{ secrets.GHCR_PASSWORD }}
