@@ -7,7 +7,7 @@ jobs:
       REPO_DEST: ghcr.io/chemaesteve
     strategy:
       matrix:
-        LISTA: []
+        LISTA: [""]
     runs-on: ubuntu-latest
     steps:
     - name: Sync From OT  Repository to GHCR Repo
