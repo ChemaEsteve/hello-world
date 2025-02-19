@@ -46,7 +46,7 @@ jobs:
     if: True
     env:
       REPO_ORI: oci://registry-1.docker.io/bitnamicharts
-      REPO_DEST: ghcr.io/chemaesteve
+      REPO_DEST: oci://ghcr.io/chemaesteve
     strategy:
       matrix:
         LISTA: ["solr:9.5.3"]
