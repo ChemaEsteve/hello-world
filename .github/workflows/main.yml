@@ -60,5 +60,5 @@ jobs:
           password: ${{ secrets.GHCR_PASSWORD }}
       - name: Pull and Push Chart to GHCR Repo
         run: |
-          helm pull ${{env.REPO_ORI}}${{matrix.LISTA}}
+          helm pull ${{env.REPO_ORI}}/${{matrix.LISTA}}
           helm push ${{env.REPO_DEST}}${{matrix.LISTA}}
