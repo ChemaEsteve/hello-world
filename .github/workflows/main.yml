@@ -1,5 +1,9 @@
 name: Sync Registry
 on: [push]
+env:
+  REPO_ORI: registry.opentext.com
+  REPO_DEST: ghcr.io/chemaesteve
+  LISTA: exstream-docgen:24.4.0.4686
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -7,64 +11,9 @@ jobs:
     - name: Sync From OT  Repository to GHCR Repo
       uses: onichandame/docker-registry-sync-action@master
       with:
-        source_repository: registry.opentext.com/otds-server:24.4.0
+        source_repository: ${{REPO_ORI}}/${{LISTA}}
         source_username: ${{ secrets.OTR_USERNAME }}
         source_password: ${{ secrets.OTR_PASSWORD }}
-        target_repository: ghcr.io/chemaesteve/otds-server:24.4.0
+        target_repository: ${{REPO_DEST}}/${{LISTA}}}
         target_username: ${{ secrets.GHCR_USERNAME }}
         target_password: ${{ secrets.GHCR_PASSWORD }}
-    - name: Sync From OT  Repository to GHCR Repo
-      uses: onichandame/docker-registry-sync-action@master
-      with:
-        source_repository: registry.opentext.com/exstream-empower:24.4.0.23991
-        source_username: ${{ secrets.OTR_USERNAME }}
-        source_password: ${{ secrets.OTR_PASSWORD }}
-        target_repository: ghcr.io/chemaesteve/exstream-empower:24.4.0.23991
-        target_username: ${{ secrets.GHCR_USERNAME }}
-        target_password: ${{ secrets.GHCR_PASSWORD }}
-    - name: Sync From OT  Repository to GHCR Repo
-      uses: onichandame/docker-registry-sync-action@master
-      with:
-        source_repository: registry.opentext.com/exstream-docgen:24.4.0.4680
-        source_username: ${{ secrets.OTR_USERNAME }}
-        source_password: ${{ secrets.OTR_PASSWORD }}
-        target_repository: ghcr.io/chemaesteve/exstream-docgen:24.4.0.4680
-        target_username: ${{ secrets.GHCR_USERNAME }}
-        target_password: ${{ secrets.GHCR_PASSWORD }}
-    - name: Sync From OT  Repository to GHCR Repo
-      uses: onichandame/docker-registry-sync-action@master
-      with:
-        source_repository: registry.opentext.com/exstream-design:24.4.0.24348
-        source_username: ${{ secrets.OTR_USERNAME }}
-        source_password: ${{ secrets.OTR_PASSWORD }}
-        target_repository: ghcr.io/chemaesteve/exstream-design:24.4.0.24348
-        target_username: ${{ secrets.GHCR_USERNAME }}
-        target_password: ${{ secrets.GHCR_PASSWORD }}
-    - name: Sync From OT  Repository to GHCR Repo
-      uses: onichandame/docker-registry-sync-action@master
-      with:
-        source_repository: registry.opentext.com/exstream-rationalization:24.4.0.2267
-        source_username: ${{ secrets.OTR_USERNAME }}
-        source_password: ${{ secrets.OTR_PASSWORD }}
-        target_repository: ghcr.io/chemaesteve/exstream-rationalization:24.4.0.2267
-        target_username: ${{ secrets.GHCR_USERNAME }}
-        target_password: ${{ secrets.GHCR_PASSWORD }}
-    - name: Sync From OT  Repository to GHCR Repo
-      uses: onichandame/docker-registry-sync-action@master
-      with:
-        source_repository: registry.opentext.com/exstream-cxi-integration:24.4.0.1661
-        source_username: ${{ secrets.OTR_USERNAME }}
-        source_password: ${{ secrets.OTR_PASSWORD }}
-        target_repository: ghcr.io/chemaesteve/exstream-cxi-integration:24.4.0.1661
-        target_username: ${{ secrets.GHCR_USERNAME }}
-        target_password: ${{ secrets.GHCR_PASSWORD }}
-    - name: Sync From OT  Repository to GHCR Repo
-      uses: onichandame/docker-registry-sync-action@master
-      with:
-        source_repository: registry.opentext.com/exstream-eep-service:24.4.0.1523
-        source_username: ${{ secrets.OTR_USERNAME }}
-        source_password: ${{ secrets.OTR_PASSWORD }}
-        target_repository: ghcr.io/chemaesteve/exstream-eep-service:24.4.0.1523
-        target_username: ${{ secrets.GHCR_USERNAME }}
-        target_password: ${{ secrets.GHCR_PASSWORD }}
-        
