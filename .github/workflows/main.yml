@@ -76,13 +76,13 @@ jobs:
       - name: Login to OT Container Registry
         uses: docker/login-action@v3
         with:
-          registry: ${{REPO_ORI}}
+          registry: ${{env.REPO_ORI}}
           username: ${{ secrets.OTR_USERNAME }}
           password: ${{ secrets.OTR_PASSWORD }}
       - name: Login to GitHub Container Registry
         uses: docker/login-action@v3
         with:
-          registry: ${{REPO_DEST}}
+          registry: ${{env.REPO_DEST}}
           username: ${{ secrets.GHCR_USERNAME }}
           password: ${{ secrets.GHCR_PASSWORD }}
       - name: Pull and Push Chart to GHCR Repo
