@@ -61,5 +61,5 @@ jobs:
       - name: Pull and Push Chart to GHCR Repo
         run: |
           helm pull ${{env.REPO_ORI}}/${{matrix.LISTA}}
-          pck=$(echo ${{matrix.LISTA}}.tgz | sed s/:/_/g)
+          pck=$(echo ${{matrix.LISTA}}.tgz | sed s/:/-/g)
           helm push  $pck ${{env.REPO_DEST}}
