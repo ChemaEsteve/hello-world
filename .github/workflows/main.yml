@@ -76,7 +76,7 @@ jobs:
       - name: Login to OT Container Registry
         uses: docker/login-action@v3
         with:
-          registry: ${{env.REPO_ORI}}
+          registry: registry.opentext.com
           username: ${{ secrets.OTR_USERNAME }}
           password: ${{ secrets.OTR_PASSWORD }}
       - name: Login to GitHub Container Registry
