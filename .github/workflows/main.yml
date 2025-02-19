@@ -49,7 +49,7 @@ jobs:
       REPO_DEST: ghcr.io/chemaesteve
     strategy:
       matrix:
-        LISTA: ["solr"]
+        LISTA: ["solr:9.5.3"]
     runs-on: ubuntu-latest
     steps:
       - name: Login to GitHub Container Registry
