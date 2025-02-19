@@ -45,7 +45,7 @@ jobs:
   Charts:
     if: True
     env:
-      REPO_ORI: docker.io/bitnami
+      REPO_ORI: registry-1.docker.io/bitnamicharts
       REPO_DEST: ghcr.io/chemaesteve
     strategy:
       matrix:
