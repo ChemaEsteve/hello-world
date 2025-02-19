@@ -61,4 +61,4 @@ jobs:
       - name: Pull and Push Chart to GHCR Repo
         run: |
           helm pull ${{env.REPO_ORI}}/${{matrix.LISTA}}
-          helm push ${{env.REPO_DEST}}${{matrix.LISTA}}
+          helm push ${{matrix.LISTA}} ${{env.REPO_DEST}}
