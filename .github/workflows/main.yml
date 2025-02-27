@@ -43,7 +43,7 @@ jobs:
         target_username: ${{ secrets.GHCR_USERNAME }}
         target_password: ${{ secrets.GHCR_PASSWORD }}
   Charts:
-    if: False
+    if: True
     env:
       REPO_ORI: oci://registry-1.docker.io/bitnamicharts
       REPO_DEST: oci://ghcr.io/chemaesteve
@@ -64,7 +64,7 @@ jobs:
           pck=$(echo ${{matrix.LISTA}}.tgz | sed s/:/-/g)
           helm push  $pck ${{env.REPO_DEST}}
   ChartsOT:
-    if: True
+    if: False
     env:
       REPO_ORI: oci://registry.opentext.com
       REPO_DEST: oci://ghcr.io/chemaesteve
